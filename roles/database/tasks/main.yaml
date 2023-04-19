@@ -1,0 +1,29 @@
+# Ansible role to install and start MongoDB service
+---
+#- name: Import the public key used by the package management system
+#  apt_key: keyserver=hkp://keyserver.ubuntu.com:80 id=7F0CEB10 state=present
+
+#- name: Add MongoDB repository
+#  apt_repository: repo='deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' state=present
+
+- name: install mongodb
+  apt: pkg=mongodb
+
+- name: start mongodb
+  service: name=mongodb state=started
+
+- name: install pymongo
+  pip:
+    name: pymongo
+    state: present
+
+- name: Create user and define roles
+  community.mongodb.mongodb_user:
+    database: burgers
+    name: jim
+    password: 12345
+    roles: readWrite,dbAdmin,userAdmin
+    state: present
+
+- name: get status of MongoDB Daemon
+  command: systemctl status mongodb

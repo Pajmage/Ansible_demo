@@ -1,0 +1,22 @@
+# Ansible role to create files and folders on client machines
+---
+- name: Create folder structure
+  file:
+    path: /home/ansible/waterhole
+    mode: 0775
+    state: directory
+
+- name: Create empty Readme.txt file
+  file: 
+    path: /home/ansible/waterhole/Readme.txt
+    state: touch
+    mode: 0775
+    modification_time: preserve
+    access_time: preserve
+
+- name: Add welcome text to Readme file
+  lineinfile:
+    state: present
+    insertafter: EOF 
+    dest: /home/ansible/waterhole/Readme.txt
+    line: "Hello World!"

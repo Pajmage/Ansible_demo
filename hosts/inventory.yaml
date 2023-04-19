@@ -1,0 +1,14 @@
+# Hosts file for Waterhole Ansible Demo
+
+[nodes]
+10.0.0.8 ansible_ssh_private_key_file=~/.ssh/node1
+10.0.0.6 ansible_ssh_private_key_file=~/.ssh/node2 
+
+[elk]
+10.0.0.8 ansible_ssh_private_key_file=~/.ssh/node1
+
+[database]
+10.0.0.6 ansible_ssh_private_key_file=~/.ssh/node2
+
+[test]
+10.0.0.9 ansible_ssh_private_key_file=~/.ssh/node3

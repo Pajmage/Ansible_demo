@@ -1,0 +1,6 @@
+# Ansible role to clean up files and folders on client machines
+---
+- name: Delete folder structure and files
+  file:
+    path: /home/ansible/waterhole
+    state: absent

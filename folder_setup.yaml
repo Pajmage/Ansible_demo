@@ -1,0 +1,12 @@
+# Playbook to deploy File management
+
+---
+
+- hosts: [nodes]
+  remote_user: ansible
+  #become: true
+
+  roles:
+    - role: filemgmt
+      #    - role: cleanup
+

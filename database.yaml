@@ -1,0 +1,11 @@
+# Playbook to install MongoDB
+
+---
+
+- hosts: [database]
+  remote_user: ansible
+  become: true
+  become_user: root
+  
+  roles:
+    - role: database

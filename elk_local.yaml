@@ -1,0 +1,13 @@
+---
+#
+# Playbook to install the ELK stack + Beats
+#
+- hosts: localhost
+  remote_user: ansible 
+  become: yes
+  roles:
+  - role: java
+  - role: elasticsearch
+  - role: kibana
+  - role: metricbeat
+

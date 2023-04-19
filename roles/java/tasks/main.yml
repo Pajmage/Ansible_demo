@@ -1,0 +1,12 @@
+---
+#
+# Installing Java 8
+#
+
+# Install Java 
+
+- name: Install Java
+  apt:
+   name: default-jdk
+   state: present
+   update_cache: yes
